@@ -89,7 +89,7 @@ AIC<-setNames(sapply(list(fitER,
                           fitARD),AIC),c("ER","ARD"))
 AIC
 aic.w(AIC)
-# AIC has slightly higher value for ARD, but weight of evidence is higher on ER.
+# AIC has slightly higher (worse) value for ARD and weight of evidence is also in favor of ER.
 
 # alternative: likelihood ratio test
 #k0<-length(fitER$rates)
@@ -103,11 +103,8 @@ aic.w(AIC)
 # goal is to plot a tree with ancestral state probabilities at nodes/branches
 # following http://blog.phytools.org/search?q=stochastic+mapping
 # and http://blog.phytools.org/2019/07/stochastic-character-mapping-with.html
-trees<-make.simmap(Humtree2,clinging,nsim=100,model="ARD")
-#object<-ctt(trees)
-#object
-#plot(object,type="number")
-#plot(object,type="rate")
+# the line below can be changed to implement a different model instead of "ER"
+trees<-make.simmap(Humtree2,clinging,nsim=100,model="ER")
 trees
 #fmode<-setNames(clinging,
 #                names(clinging))
@@ -115,7 +112,7 @@ cols<-setNames(c("black","yellow"), c("legit","clinger"))
 plot(summary(trees), colors=cols, fsize=0.3, ftype="i",cex=c(0.2,0.1))
 legend(x="bottomleft",legend=c("hover", "cling"),pt.bg=cols,pt.cex=2.4,pch=21)
 
-#fan-type tree
+#fan-type tree can be made if preferred aesthetically
 #plot(summary(trees), colors=cols, type="fan")
 #legend(x="bottomleft",legend=c("legit", "clinger"),pt.bg=cols,pt.cex=2.4,pch=21)
 
@@ -161,8 +158,7 @@ plotMKmodel(MK_2cat)
 #plotMKmodel(MK_4cat)
 
 # AIC to see which model (number of rate categories) fits best
-# the 4 rate model has the highest AICc but 2-4 are very close.
-# to not over-complicate the model, 2 rates were used; the tree looked weird because of the 'hidden states'
+# the simplest model has the best (lowest AIC), the 4 rate model has the highest AICc but 2-4 are very close.
 # simple one rate simmap:
 
 phy = MK_2state$phy
