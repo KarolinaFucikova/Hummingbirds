@@ -52,8 +52,8 @@ Wing <- data$WingSpMean
 Bill <- data$ECulmSpMean
 Tarsus <- data$TarSpMean
 Hallux <- data$HClawSpMean
-#Midtoe <- data$LogMidToeClaw
-# leaving the Midtoe out for now
+Midtoe <- data$MTClawMean
+# midtoe differs from others - it has a lot of missing data
 
 #data_with_names <- data$Species
 #names(data_with_names) <- data_with_names$species_names
@@ -73,8 +73,8 @@ phylosig(Humtree2, Tarsus, method="lambda", test=TRUE)
 names(Hallux) <- data$Species
 phylosig(Humtree2, Hallux, method="lambda", test=TRUE)
 
-# names(Midtoe) <- data$Species
-# phylosig(Humtree2, Midtoe, method="lambda", test=TRUE)
+names(Midtoe) <- data$Species
+phylosig(Humtree2, Midtoe, method="lambda", test=TRUE)
 
 
 # the following code conducts the same test but also accounts for variance (se) in measurments
