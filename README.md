@@ -13,7 +13,16 @@ Differences among hummingbird species in bill length and shape have rightly been
 
 This R project contains files used to calculate Pagel's lambda and infer the evolution of feeding styles using the hummingbird phylogeny.
 
-The R scripts are the src directory - one for Pagel's lambda calculations and one for character evolution. Each script is annotated to indicate how the analyses were done and how specific lines can be modified to adapt to different data. The annotations also include links to relevant tutorials and blogs.
-The underlying data are located in the data directory and contain a Bayesian consensus tree in .tre format as well as a csv table of measurements of body parts (bill and foot) and feeding styles in different hummingbird species.
+src
+
+The R scripts are the src directory - Pagel_Rscript.R for Pagel's lambda calculations and Character_evolution.R for character evolution mapping analyses. Each script is annotated to indicate how the analyses were done and how specific lines can be modified to adapt to different data. The annotations also include links to relevant tutorials and blogs.
+
+data
+
+The underlying data are located in the data directory and contain a Bayesian consensus tree in .tre format (HumtreeCons.tre) as well as a csv table (HumData2.csv) of measurements of body parts (bill and foot, and the relevant standard error - SE - values) and feeding styles in different hummingbird species. Feeding styles are recorded in two ways in the table - FeedStyle column contains the specific feeding styles 1-7 (e.g., feeds legitimately on the wing, feeds through openings while clinging...), whereas the Clinging column contains the same data coded as binary: clinging (1) vs. non-clinging (0). The Clinging column was used to map the evolution of feeding on the phylogeny.
+
 The tree and table do not correspond 100% - names match but there are taxa that are in the tree but not in the table (or do not have data for all variables in the table), and vice versa. Missing data are dropped from the individual analyses in R - the first part of each script handles the 'cleanup' of the data, then each script proceeds with analyses.
-The figures folder includes simmap results under the ER model (the better-fitting model) as well as under the more complex ARD model (for illustration only). The results are plotted in two ways for each model: tree with pie charts at nodes showing odds of a particular state (feeding style) being present in an ancestor, and tree with color gradients on branches representing the density of character state inference across the 100 simulation performed.
+
+figures
+
+The figures folder includes simmap results under the ER model (the better-fitting model selected based on AIC) as well as under the more complex ARD model (for illustration only). The results are plotted in two ways for each model: tree with pie charts at nodes showing odds of a particular state (feeding style) being present in an ancestor, and tree with color gradients on branches representing the density of character state inference across the 100 simulation performed.
