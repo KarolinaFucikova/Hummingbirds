@@ -26,3 +26,10 @@ The tree and table do not correspond 100% - names match but there are taxa that 
 figures
 
 The figures folder includes simmap results under the ER model (the better-fitting model selected based on AIC) as well as under the more complex ARD model (for illustration only). The results are plotted in two ways for each model: tree with pie charts at nodes showing odds of a particular state (feeding style) being present in an ancestor, and tree with color gradients on branches representing the density of character state inference across the 100 simulation performed.
+
+Versions:
+This work was completed in R version 4.1.0 (2021-05-18), "Camp Pontanezen".
+The Pagel_Rscript.R code uses the following packages: 
+phytools (version 1.2-0), parallel (version 4.1.0), viridis (version 0.6.2), and geiger (version 2.0.10),
+The Character_evolution.R script uses the following additional packages:
+ape (version 5.6-2), expm (version 0.999-6) and corHMM (version2.8; only used to explore the data; analyses were not used in the final manuscript).
